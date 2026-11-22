@@ -1,7 +1,9 @@
 {
   "name": "MATA-X Radar DISKOMLEKAU",
   "short_name": "MATA-X",
+  "description": "Modul Akuisisi Target Angkasa (MATA-X) - Sistem pemantauan udara taktis, radar live ADS-B, dan navigasi zona peringatan dini DISKOMLEKAU.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "orientation": "any",
   "background_color": "#050811",
