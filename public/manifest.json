@@ -4,18 +4,20 @@
   "start_url": "/",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#050a0a",
-  "theme_color": "#050a0a",
+  "background_color": "#050811",
+  "theme_color": "#050811",
   "icons": [
     {
-      "src": "/icon-192.png",
+      "src": "/assets/aistudio/1795351952607_f358a1b3.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "/icon-512.png",
+      "src": "/assets/aistudio/1795351952607_f358a1b3.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }

@@ -695,6 +695,11 @@ export default function App() {
       {/* ================= TOP BAR (Ultra-slim, Glassmorphism, 48px max) ================= */}
       <header className="h-12 bg-[#050811]/85 backdrop-blur-md border-b border-[#00f3ff]/25 px-3 flex items-center justify-between z-[1000] shrink-0">
         <div className="flex items-center space-x-2">
+          <img 
+            src="/assets/aistudio/IMG_20261122_194755_891_091df230.jpg" 
+            alt="Logo TNI AU" 
+            className="w-8 h-8 rounded-full border border-amber-400/60 object-cover shadow-[0_0_10px_rgba(251,191,36,0.3)]"
+          />
           <div className="w-7 h-7 bg-[#00f3ff]/10 border border-[#00f3ff]/40 flex items-center justify-center rounded">
             <Radar className="w-4 h-4 text-[#00f3ff] animate-spin" style={{ animationDuration: '8s' }} />
           </div>
@@ -720,6 +725,17 @@ export default function App() {
 
         {/* Top Right Controls */}
         <div className="flex items-center space-x-1.5">
+          {deferredPrompt && (
+            <button
+              onClick={handleInstallPwa}
+              className="px-2.5 py-1 rounded bg-amber-500/20 border border-amber-400 text-amber-300 text-[11px] font-bold flex items-center gap-1 hover:bg-amber-500/30 transition animate-pulse"
+              title="Install Aplikasi di HP/Tablet"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span className="hidden md:inline">Install App</span>
+            </button>
+          )}
+
           <button 
             onClick={() => setIsMuted(!isMuted)} 
             className="w-8 h-8 rounded bg-[#0b1325] border border-[#00f3ff]/30 flex items-center justify-center text-[#00f3ff] hover:bg-[#00f3ff]/20 transition"
@@ -735,6 +751,12 @@ export default function App() {
           >
             {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
           </button>
+
+          <img 
+            src="/assets/aistudio/IMG_20261122_194756_745_b3bf089a.jpg" 
+            alt="Logo Petir" 
+            className="w-8 h-8 rounded-full border border-amber-400/60 object-cover shadow-[0_0_10px_rgba(251,191,36,0.3)] ml-1"
+          />
         </div>
       </header>
 
