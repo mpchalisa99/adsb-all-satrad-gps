@@ -1,0 +1,240 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-military-bg: #0b0f19;
+    --color-military-cyan: #00f3ff;
+    --color-military-green: #00ff66;
+    --color-military-red: #ff3333;
+    --color-military-yellow: #ffcc00;
+  }
+
+  body {
+    background-color: #050811;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  
+  /* Font styling classes for military HUD */
+  .font-mono-military {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  }
+  
+  .font-heading-navy {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(11, 15, 25, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 243, 255, 0.2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 243, 255, 0.5);
+}
+
+/* Dark theme style overrides for Leaflet */
+.leaflet-container {
+  background: #050811 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+.leaflet-bar {
+  border: 1px solid rgba(0, 243, 255, 0.3) !important;
+  background-color: rgba(6, 11, 25, 0.85) !important;
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.15) !important;
+}
+
+.leaflet-bar a {
+  background-color: rgba(6, 11, 25, 0.85) !important;
+  color: #00f3ff !important;
+  border-bottom: 1px solid rgba(0, 243, 255, 0.2) !important;
+  transition: all 0.2s ease;
+}
+
+.leaflet-bar a:hover {
+  background-color: rgba(0, 243, 255, 0.2) !important;
+  color: #ffffff !important;
+}
+
+/* Custom Tactical Tooltip styling */
+.tactical-tooltip {
+  background: rgba(5, 9, 20, 0.9) !important;
+  border: 1px solid rgba(0, 243, 255, 0.5) !important;
+  color: #00f3ff !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11px !important;
+  padding: 4px 8px !important;
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.25) !important;
+  border-radius: 3px !important;
+}
+
+/* Custom Leaflet tactical popup overrides */
+.leaflet-popup-content-wrapper {
+  background: rgba(5, 9, 20, 0.96) !important;
+  border: 1.5px solid rgba(0, 243, 255, 0.5) !important;
+  color: #00f3ff !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.35) !important;
+  border-radius: 3px !important;
+  padding: 2px !important;
+}
+
+.leaflet-popup-content {
+  margin: 8px 12px !important;
+}
+
+.leaflet-popup-tip {
+  background: rgba(5, 9, 20, 0.96) !important;
+  box-shadow: none !important;
+}
+
+/* CRT Scanline Scan effect */
+.crt-scanline {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 243, 255, 0.08) 50%
+  );
+  background-size: 100% 4px;
+}
+
+/* Glowing animations */
+@keyframes radar-pulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+.ping-indicator {
+  position: absolute;
+  border-radius: 50%;
+  animation: radar-pulse 1.8s infinite ease-out;
+}
+
+/* Target military blinking animation for threat alerts */
+@keyframes threat-blink {
+  0%, 100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 10px rgba(255, 51, 51, 0.8));
+  }
+  50% {
+    opacity: 0.3;
+    filter: drop-shadow(0 0 2px rgba(255, 51, 51, 0.1));
+  }
+}
+
+.threat-blink-effect {
+  animation: threat-blink 1s infinite;
+}
+
+.marker-label-hostile {
+  color: #ff3333 !important;
+  font-weight: bold;
+  animation: threat-blink 1s infinite;
+}
+
+
+
+/* Custom Grid HUD interface styling */
+.hud-border {
+  border: 1px solid rgba(0, 243, 255, 0.25);
+  box-shadow: inset 0 0 15px rgba(0, 243, 255, 0.05), 0 0 10px rgba(0, 243, 255, 0.05);
+}
+
+.hud-panel {
+  background: rgba(7, 12, 24, 0.85);
+  border: 1.5px solid rgba(0, 243, 255, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+.hud-panel-danger {
+  border: 1.5px solid rgba(255, 51, 51, 0.35);
+  background: rgba(18, 5, 10, 0.88);
+}
+
+.hud-header {
+  border-bottom: 1.5px solid rgba(0, 243, 255, 0.25);
+}
+
+/* Glowing text class */
+.glow-cyan {
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.6);
+}
+
+.glow-green {
+  text-shadow: 0 0 10px rgba(0, 255, 102, 0.6);
+}
+
+.glow-red {
+  text-shadow: 0 0 10px rgba(255, 51, 51, 0.6);
+}
+
+/* Custom icons for aircraft on map with 100% precise coordinate alignment */
+.aircraft-marker-container {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aircraft-icon-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center center;
+}
+
+.aircraft-label-hud {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.95);
+  transform-origin: top center;
+  pointer-events: none;
+}
+
+.aircraft-icon-svg {
+  display: block;
+  width: 14px;
+  height: 14px;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 0 2px currentColor);
+  opacity: 0.85;
+}
+
+/* Smooth continuous aircraft flight history trails */
+.aircraft-history-polyline {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 3px currentColor);
+  pointer-events: none;
+}
+
+/* Clear Leaflet's default div icon background and border boundaries */
+.leaflet-marker-icon.leaflet-div-icon,
+[class*="custom-tactical-mark-"] {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  padding: 0 !important;
+}
